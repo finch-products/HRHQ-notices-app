@@ -1,0 +1,15 @@
+<!-- user-management.component.html -->
+<div class="container p-4">
+  <h2>Add Branch</h2>
+  <mat-form-field appearance="outline">
+    <mat-label>Branch Name</mat-label>
+    <input matInput [(ngModel)]="branchName" name="branchName">
+  </mat-form-field>
+
+  <button mat-raised-button (click)="addBranch()">Add Branch</button>
+
+  <h2>Branch Lists</h2>
+  <div *ngFor="let branch of branches">
+    {{ branch }}
+  </div>
+</div>

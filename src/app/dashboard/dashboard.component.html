@@ -1,0 +1,76 @@
+<div class="dashboard container p-4">
+  <!-- Date at which docs were sent -->
+  <div class="docs-sent">
+    <h2>Date at which No of Notices Sent to Branches</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Branch</th>
+          <th>Number of Documents</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entry of reportData">
+          <td>{{ entry.date }}</td>
+          <td>{{ entry.branch }}</td>
+          <td>{{ entry.documentCount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- What is Pending -->
+  <div class="pending">
+    <h2>Pending Notices for Action</h2>
+    <div *ngFor="let reportEntry of pendingReport">
+      {{ reportEntry.branchName }} , {{ reportEntry.pendingCount }} docs pending for action
+    </div>
+  </div>
+
+  <!-- Branch Confirmation Status -->
+  <div class="confirmation-status">
+    <h2>Branch Notice Status</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Branch Name</th>
+          <th>Total Notices</th>
+          <th>Confirmed Notices</th>
+          <th>Pending Notices</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let report of confirmationReport">
+          <td>{{ report.branchName }}</td>
+          <td>{{ report.totalNotices }}</td>
+          <td>{{ report.confirmedNotices }}</td>
+          <td>{{ report.pendingNotices }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <!-- Branches that didn't post yet -->
+  <div class="not-posted">
+    <h2>Branch Which has not posted</h2>
+    <ul>
+      <li *ngFor="let branch of branchesNotPosted">
+        {{ branch.name }} has not posted any notices.
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- Notices seen but not acknowledged -->
+  <div class="not-acknowledged">
+   <h2>Branches seen the notice but not Acknowledged</h2>
+   <ul>
+    <li *ngFor="let unacknowledged of unacknowledgedNotices">
+      {{ unacknowledged.branch.name }} has seen the notice but not acknowledged it: {{ unacknowledged.notice.title }}.
+    </li>
+  </ul>
+
+  </div>
+</div>

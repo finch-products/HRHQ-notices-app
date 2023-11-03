@@ -1,0 +1,13 @@
+<div #bellIcon (click)="toggleNoticeDetails()">
+  🔔
+</div>
+
+<ng-template #overlayTemplate>
+  <div class="notification-overlay">
+    <h3>Notices Alert</h3>
+    <p>
+      You have {{ pendingNoticesCount }} pending notices that needs your attention.
+    </p>
+    <button (click)="navigateToNoticeDetail()">Click here to know</button>
+  </div>
+</ng-template>

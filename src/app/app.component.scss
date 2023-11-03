@@ -1,0 +1,36 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.desktop-menu {
+  display: flex;
+  a {
+    color: white;
+  }
+}
+
+.desktop-menu a {
+  margin-left: 20px;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 600px) {
+  .desktop-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 601px) {
+  mat-toolbar button {
+    display: none;
+  }
+}

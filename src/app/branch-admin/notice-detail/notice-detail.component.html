@@ -1,0 +1,31 @@
+<div class="container p-4 notice-detail">
+  <div class="notice-detail">
+    <h2>Notice Detail</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Notice Document</th>
+          <th>Uploaded On</th>
+          <th>Proof</th>
+          <th>Upload Btn</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let notice of mockNotices; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td> <a href="{{ notice.document }}" target="_blank">{{ notice.title }}</a></td>
+          <td>{{ notice.uploadedOn }}</td>
+          <td>
+            {{ uploadedProofs[i]?.[0]?.name }}
+          </td>
+          <td>
+            <input type="file" #fileInput style="display:none" (change)="uploadProof(i, fileInput.files)" multiple>
+            <button (click)="fileInput.click()">Upload</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
