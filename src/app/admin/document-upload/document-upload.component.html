@@ -1,7 +1,7 @@
 <div class="container p-4">
   <div class="file-input-wrapper">
     <h2>Upload Notices</h2>
-    <button mat-raised-button type="button" (click)="fileInput.click()">Choose File</button>
+    <button mat-raised-button type="button" *ngIf="documents.length === 0" (click)="fileInput.click()">Choose File</button>
     <input type="file" #fileInput (change)="onFilesSelected($event)" multiple style="display: none;" />
   </div>
 
@@ -17,7 +17,7 @@
   </div>
 
 
-  <button mat-raised-button (click)="uploadDocuments()" [disabled]="documents.length === 0">Upload</button>
+  <button mat-raised-button (click)="uploadDocuments()" *ngIf="documents.length !== 0">Upload</button>
 
   <div class="notice-list-wrap pt-4">
     <h2>Notices List</h2>
@@ -40,7 +40,7 @@
             </a>
           </td>
           <td>{{ uploadedDocument.allBranches ? 'All Branches' : uploadedDocument.selectedBranch }}</td>
-          <td>{{ uploadedDocument.sentOn | date:'short' }}</td>
+          <td>{{ uploadedDocument.sentOn | date:'dd MMM yy, hh:mm a' }}</td>
           <td>{{ uploadedDocument.status }}</td>
         </tr>
       </tbody>

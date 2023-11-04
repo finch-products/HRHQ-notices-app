@@ -1,54 +1,68 @@
 <div class="container p-4">
-  <h2>Add User</h2>
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="user-form">
-    <div class="row">
-      <mat-form-field class="col" appearance="outline">
-        <mat-label>First Name</mat-label>
-        <input matInput formControlName="firstName" required>
-      </mat-form-field>
-      <mat-form-field class="col" appearance="outline">
-        <mat-label>Last Name</mat-label>
-        <input matInput formControlName="lastName" required>
-      </mat-form-field>
-      <mat-form-field class="col" appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput type="email" formControlName="email" required>
-      </mat-form-field>
-    </div>
-    <div class="row">
-      <mat-form-field class="col" appearance="outline">
-        <mat-label>Contact</mat-label>
-        <input matInput formControlName="contact" required>
-      </mat-form-field>
-      <mat-form-field class="col" appearance="outline">
-        <mat-label>Address</mat-label>
-        <textarea matInput formControlName="address" required></textarea>
-      </mat-form-field>
-    </div>
-    <button mat-raised-button type="submit" [disabled]="userForm.invalid">Submit</button>
-  </form>
-  <div class="user-list pt-4">
-    <h2>User List</h2>
-    <table class="table" *ngIf="users.length > 0">
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th>Contact</th>
-          <th>Address</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{ user.firstName }}</td>
-          <td>{{ user.lastName }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.contact }}</td>
-          <td>{{ user.address }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+	<div class="card">
+		<h2>Add User</h2>
+		<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="user-form pad">
+			<div class="row">
+				<div class="col-12 col-sm-6 col-lg-3">
+					<mat-form-field appearance="outline">
+						<mat-label>First Name</mat-label>
+						<input matInput formControlName="firstName" required>
+					</mat-form-field>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<mat-form-field appearance="outline">
+						<mat-label>Last Name</mat-label>
+						<input matInput formControlName="lastName" required>
+					</mat-form-field>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<mat-form-field appearance="outline">
+						<mat-label>Email</mat-label>
+						<input matInput type="email" formControlName="email" required>
+					</mat-form-field>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<mat-form-field appearance="outline">
+						<mat-label>Contact</mat-label>
+						<input matInput formControlName="contact" required>
+					</mat-form-field>
+				</div>
+				<div class="col-12">
+					<mat-form-field appearance="outline">
+						<mat-label>Address</mat-label>
+						<textarea matInput formControlName="address" required></textarea>
+					</mat-form-field>
+				</div>
+			</div>
+			<div align="end">
+				<button mat-raised-button type="submit" [disabled]="userForm.invalid">Submit</button>
+	
+			</div>
+		</form>
+	</div>
+	
+	<div class="user-list pt-4 card">
+		<h2>User List</h2>
+		<table class="table" *ngIf="users.length > 0">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Contact</th>
+					<th>Address</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let user of users">
+					<td>{{ user.firstName }}</td>
+					<td>{{ user.lastName }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.contact }}</td>
+					<td>{{ user.address }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
 </div>

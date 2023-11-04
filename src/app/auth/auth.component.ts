@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-auth',
+  styleUrls: ['./auth.component.scss'],
   templateUrl: './auth.component.html',
 })
 export class AuthComponent {
@@ -62,6 +63,9 @@ export class AuthComponent {
           localStorage.setItem('role', 'branchAdmin');
         }
         this.router.navigate(['/dashboard']);
+        setTimeout(() => {
+          location.reload()
+        }, 500);
       }
     });
   }

@@ -15,7 +15,7 @@
         <tr *ngFor="let notice of mockNotices; let i = index">
           <td>{{ i + 1 }}</td>
           <td> <a href="{{ notice.document }}" target="_blank">{{ notice.title }}</a></td>
-          <td>{{ notice.uploadedOn }}</td>
+          <td>{{ notice.uploadedOn | date }}</td>
           <td *ngIf="authService.getRole() === 'branchAdmin'">
             {{ uploadedProofs[i]?.[0]?.name }}
           </td>
@@ -43,7 +43,7 @@
         <tr *ngFor="let notice of mockNotices; let i = index">
           <td>{{ i + 1 }}</td>
           <td><a href="{{ notice.document }}" target="_blank">{{ notice.title }}</a></td>
-          <td>{{ notice.uploadedOn }}</td>
+          <td>{{ notice.uploadedOn | date }}</td>
           <td>
             <img *ngIf="notice.proof" [src]="notice.proof" alt="Proof" width="100">
           </td>

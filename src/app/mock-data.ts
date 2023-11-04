@@ -11,8 +11,8 @@ export const mockDocuments: Document[] = [
 ];
 
 export const mockBranches: Branch[] = [
-  { id: 1, name: 'Branch 1', confirmed: false },
-  { id: 2, name: 'Branch 2', confirmed: true },
+  { id: 1, name: 'Bellandur', confirmed: false },
+  { id: 2, name: 'Marathalli', confirmed: true },
   { id: 3, name: 'Branch 3', confirmed: false },
 ];
 

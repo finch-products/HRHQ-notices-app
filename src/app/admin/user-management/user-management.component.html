@@ -1,15 +1,21 @@
 <!-- user-management.component.html -->
 <div class="container p-4">
-  <h2>Add Branch</h2>
-  <mat-form-field appearance="outline">
-    <mat-label>Branch Name</mat-label>
-    <input matInput [(ngModel)]="branchName" name="branchName">
-  </mat-form-field>
+	<!-- <h2>Add Branch</h2> -->
+	<h2>Branch Lists</h2>
+	<div class="form flex-r">
+		<!-- <mat-form-field appearance="outline">
+      <mat-label>Branch Name</mat-label>
+      <input matInput [(ngModel)]="branchName" name="branchName">
+    </mat-form-field> -->
+		<input type="text" placeholder="Type to add.." class="col-8 col-lg-10">
+		<button mat-flat-button class="col-4 col-lg-2" color="primary" (click)="addBranch()">
+			<mat-icon>add</mat-icon>
+			New Branch
+		</button>
+	</div>
 
-  <button mat-raised-button (click)="addBranch()">Add Branch</button>
 
-  <h2>Branch Lists</h2>
-  <div *ngFor="let branch of branches">
-    {{ branch }}
-  </div>
+	<div *ngFor="let branch of branches" class="branch-list card">
+		{{ branch }}
+	</div>
 </div>

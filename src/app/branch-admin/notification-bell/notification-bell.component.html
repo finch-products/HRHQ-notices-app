@@ -11,6 +11,6 @@
     <p *ngIf="authService.getRole() === 'hrhqadmin'">
       You have {{ pendingNoticesCount }} aknowledged notices.
     </p>
-    <button (click)="navigateToNoticeDetail()">Click here to know</button>
+    <button mat-flat-button color="primary" (click)="navigateToNoticeDetail()">Click here to know</button>
   </div>
 </ng-template>

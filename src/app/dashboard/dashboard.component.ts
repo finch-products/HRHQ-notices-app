@@ -5,6 +5,7 @@ import { mockBranches, notices } from '../mock-data';
 
 @Component({
   selector: 'app-dashboard',
+  styleUrls: ['./dashboard.component.scss'],
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent {

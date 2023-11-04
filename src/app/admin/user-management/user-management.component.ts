@@ -4,6 +4,7 @@ import { BranchManagementService } from '../branch-management.service';
 
 @Component({
   selector: 'app-user-management',
+  styleUrls: ['./user-management.component.scss'],
   templateUrl: './user-management.component.html'
 })
 export class UserManagementComponent {

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BranchManagementService {
-  private branches = ['Branch 1', 'Branch 2'];
+  private branches = ['Bellandur', 'Marathalli'];
 
   getBranches() {
     return this.branches;
