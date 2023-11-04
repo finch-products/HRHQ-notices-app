@@ -27,7 +27,7 @@ export class AuthComponent {
     });
     this.route.paramMap.subscribe((params) => {
       this.userType = params.get('userType');
-      this.title = this.userType === 'hrhq' ? 'Login as HRHQ Admin' : 'Login as Branch Admin';
+      this.title = this.userType === 'hrhqadmin' ? 'Login as HRHQ Admin' : 'Login as Branch Admin';
     });
   }
 
@@ -56,7 +56,7 @@ export class AuthComponent {
     this.authService.authenticate(otp).then((isAuthenticated) => {
       if (isAuthenticated) {
         this.openSnackBar('Successful', 'Close');
-        if (this.userType === 'hrhq') {
+        if (this.userType === 'hrhqadmin') {
           localStorage.setItem('role', 'hrhqadmin');
         } else {
           localStorage.setItem('role', 'branchAdmin');
@@ -65,4 +65,9 @@ export class AuthComponent {
       }
     });
   }
+
+  showSubmitButton(): boolean {
+    return this.otpSent && this.authForm.get('otp')!.value;
+  }
+
 }

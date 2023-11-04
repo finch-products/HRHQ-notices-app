@@ -28,7 +28,6 @@ import { NotificationBellComponent } from './branch-admin/notification-bell/noti
 import { NoticeDetailComponent } from './branch-admin/notice-detail/notice-detail.component';
 import { BranchAdminComponent } from './branch-admin/branch-admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DocumentService } from './document.service';
 import { EmailTemplateComponent } from './email-template/email-template.component';
 import { UserFormComponent } from './branch-admin/user-form/user-form.component';
 
@@ -67,7 +66,7 @@ import { UserFormComponent } from './branch-admin/user-form/user-form.component'
     HttpClientModule,
     OverlayModule
   ],
-  providers: [AuthService, DocumentService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,9 +17,17 @@
     </div>
     <div class="row">
       <mat-form-field class="col" appearance="outline">
-        <mat-label>Contact</mat-label>
-        <input matInput formControlName="contact" required>
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phone" required>
       </mat-form-field>
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>Select Branch</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let branch of branches" [value]="branch">{{ branch }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="row">
       <mat-form-field class="col" appearance="outline">
         <mat-label>Address</mat-label>
         <textarea matInput formControlName="address" required></textarea>
@@ -35,7 +43,7 @@
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
-          <th>Contact</th>
+          <th>Phone Number</th>
           <th>Address</th>
         </tr>
       </thead>
@@ -44,7 +52,7 @@
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.contact }}</td>
+          <td>{{ user.phone }}</td>
           <td>{{ user.address }}</td>
         </tr>
       </tbody>

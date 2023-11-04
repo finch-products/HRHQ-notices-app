@@ -1,6 +1,5 @@
-<!-- auth.component.html -->
 <div class="login-wrap" fxLayout="column" fxLayoutAlign="center center" style="height: 100vh;">
-  <span><a href="/login/hrhq">HRHQ Login</a></span>
+  <span><a href="/login/hrhqadmin">HRHQ Login</a></span>
   <span><a href="/login">Branch Login</a></span>
   <div class="app-auth-form" fxLayout="column">
     <h2>{{title}}</h2>
@@ -17,7 +16,7 @@
         <input matInput formControlName="otp" required />
       </mat-form-field>
 
-      <button class="submit-btn" type="submit" [disabled]="!authForm.get('otp')!.valid">Submit</button>
+      <button class="submit-btn" type="submit" *ngIf="showSubmitButton()" [disabled]="!authForm.get('otp')!.valid">Submit</button>
     </form>
   </div>
 </div>
