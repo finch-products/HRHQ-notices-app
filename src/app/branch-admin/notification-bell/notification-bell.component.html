@@ -5,8 +5,11 @@
 <ng-template #overlayTemplate>
   <div class="notification-overlay">
     <h3>Notices Alert</h3>
-    <p>
+    <p *ngIf="authService.getRole() === 'branchAdmin'">
       You have {{ pendingNoticesCount }} pending notices that needs your attention.
+    </p>
+    <p *ngIf="authService.getRole() === 'hrhqadmin'">
+      You have {{ pendingNoticesCount }} aknowledged notices.
     </p>
     <button (click)="navigateToNoticeDetail()">Click here to know</button>
   </div>

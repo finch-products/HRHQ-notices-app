@@ -9,6 +9,7 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-notification-bell',
@@ -28,7 +29,8 @@ export class NotificationBellComponent {
   constructor(
     private overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
-    private router: Router
+    private router: Router,
+    public authService: AuthService
   ) {}
 
   navigateToNoticeDetail() {

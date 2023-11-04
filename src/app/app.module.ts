@@ -17,6 +17,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth.service';
 import { DocumentUploadComponent } from './admin/document-upload/document-upload.component';
@@ -29,6 +30,7 @@ import { BranchAdminComponent } from './branch-admin/branch-admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DocumentService } from './document.service';
 import { EmailTemplateComponent } from './email-template/email-template.component';
+import { UserFormComponent } from './branch-admin/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { EmailTemplateComponent } from './email-template/email-template.componen
     NoticeDetailComponent,
     BranchAdminComponent,
     DashboardComponent,
-    EmailTemplateComponent
+    EmailTemplateComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { EmailTemplateComponent } from './email-template/email-template.componen
     MatListModule,
     MatSidenavModule,
     MatIconModule,
-    MatDialogModule ,
+    MatDialogModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     HttpClientModule,
     OverlayModule

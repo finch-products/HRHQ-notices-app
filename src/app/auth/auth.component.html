@@ -1,7 +1,9 @@
 <!-- auth.component.html -->
-<div fxLayout="column" fxLayoutAlign="center center" style="height: 100vh;">
+<div class="login-wrap" fxLayout="column" fxLayoutAlign="center center" style="height: 100vh;">
+  <span><a href="/login/hrhq">HRHQ Login</a></span>
+  <span><a href="/login">Branch Login</a></span>
   <div class="app-auth-form" fxLayout="column">
-    <h2>{{title}} Login</h2>
+    <h2>{{title}}</h2>
     <form [formGroup]="authForm" (ngSubmit)="submit()">
       <mat-form-field appearance="outline">
         <mat-label>Phone Number</mat-label>

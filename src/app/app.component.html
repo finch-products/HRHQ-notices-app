@@ -1,11 +1,14 @@
-<mat-sidenav-container>
+<mat-sidenav-container *ngIf="showHeader">
   <mat-sidenav #sidenav mode="over" class="sidenav">
     <mat-nav-list>
       <a mat-list-item routerLink="/dashboard" (click)="sidenav.close()">Dashboard/Home</a>
-      <a mat-list-item routerLink="/admin/users" (click)="sidenav.close()">Branch Management</a>
+      <a *ngIf="authService.getRole() === 'branchAdmin'" routerLink="/user-management">Users</a>
+      <a *ngIf="authService.getRole() === 'hrhqadmin'" mat-list-item routerLink="/admin/users"
+        (click)="sidenav.close()">Branch Management</a>
       <a mat-list-item routerLink="/admin/upload" (click)="sidenav.close()">File Upload Management</a>
       <a><app-notification-bell></app-notification-bell></a>
       <a routerLink="/reminders">Reminders</a>
+      <a routerLink="/login" (click)="logout()">Logout</a>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -14,16 +17,18 @@
       <button mat-icon-button (click)="sidenav.toggle()" *ngIf="isHandset$ | async">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>HRHQ Notices</span>
+      <span>HRHQ Notices - {{title}}</span>
       <span class="spacer"></span>
       <nav class="desktop-menu">
         <a routerLink="/dashboard">Dashboard</a>
-        <a routerLink="/admin/users">Branch</a>
-        <a routerLink="/admin/upload">Notices</a>
+        <a *ngIf="authService.getRole() === 'branchAdmin'" routerLink="/user-management">Users</a>
+        <a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/admin/users">Branch</a>
+        <a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/admin/upload">Notices</a>
         <a class="bell-icon"><app-notification-bell></app-notification-bell></a>
         <a routerLink="/reminders">Reminders</a>
+        <a routerLink="/login" (click)="logout()">Logout</a>
       </nav>
     </mat-toolbar>
-    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<router-outlet></router-outlet>

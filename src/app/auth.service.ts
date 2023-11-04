@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   authenticate(otp: string): Promise<boolean> {
@@ -19,4 +19,16 @@ export class AuthService {
       }, 2000);
     });
   }
+
+  getRole(): string | null {
+    return localStorage.getItem('role');
+  }
+
+  // setRole(role: string): void {
+  //   this.role = role;
+  // }
+
+  // getRole(): string {
+  //   return this.role;
+  // }
 }

@@ -60,7 +60,7 @@ mat-form-field {
 .cdk-overlay-pane {
   position: absolute !important;
   right: 0;
-  top: -14%;
+  top: 0;
 }
 .notification-overlay {
   width: 230px;
@@ -82,4 +82,8 @@ mat-form-field {
 .email-template {
   border: 1px solid #ccc;
   font-family: Arial, sans-serif;
+}
+
+.custom-snackbar {
+  z-index: 9999 !important;
 }
