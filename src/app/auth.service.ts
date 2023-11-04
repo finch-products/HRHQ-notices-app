@@ -14,12 +14,9 @@ export class AuthService {
 
 
   constructor() {
-    this.role$.subscribe(role => {
-      if (role === 'hrhqadmin') {
-        this.titleSubject.next('HRHQ Admin');
-      } else {
-        this.titleSubject.next('Branch Admin');
-      }
+    this.updateTitle();
+    this.role$.subscribe(() => {
+      this.updateTitle();
     });
   }
 
@@ -49,6 +46,15 @@ export class AuthService {
   setRole(role: string): void {
     localStorage.setItem('role', role);
     this.roleSubject.next(role);
+  }
+
+  private updateTitle(): void {
+    const role = localStorage.getItem('role');
+    if (role === 'hrhqadmin') {
+      this.titleSubject.next('HRHQ Admin');
+    } else {
+      this.titleSubject.next('Branch Admin');
+    }
   }
 
   // setRole(role: string): void {
