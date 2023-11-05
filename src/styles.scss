@@ -316,3 +316,23 @@ mat-tab-header {
         }
     }
 }
+.notice-bar {
+  background-color: lightblue;
+  padding: 10px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+@keyframes marquee {
+  0% { text-indent: -100% }
+  100% { text-indent: 100% }
+}
+
+.moving-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+}

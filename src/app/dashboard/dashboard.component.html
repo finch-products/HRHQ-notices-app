@@ -1,7 +1,43 @@
 <div class="dashboard container p-4">
+  <!-- Branch Confirmation Status -->
+  <div class="confirmation-status">
+    <h2>Branch Notice Status</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Branch Name</th>
+          <th>Total Notices</th>
+          <th>Acknowledged</th>
+          <th>Seen but not Acknowledged<button mat-raised-button type="submit" (click)="sendReminder()">Send
+              Reminder</button>
+          </th>
+
+          <th>Not Seen<button mat-raised-button type="submit" (click)="sendReminder()">Send Reminder</button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let report of confirmationReport">
+          <td>{{ report.branchName }}</td>
+          <td>{{ report.totalNotices }}</td>
+          <td>{{ report.acknowledged }}</td>
+          <td>{{ report.seenNotAcknowledged }}</td>
+          <td>{{ report.notSeen }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+   <!-- What is Pending -->
+   <div class="pending">
+    <h2>Pending Notices for Action</h2>
+    <ng-container *ngFor="let notice of pendingReportData">
+      <a href="{{ notice.url }}" target="_blank">{{ notice.title }}</a>
+    </ng-container>
+  </div>
+
   <!-- Date at which docs were sent -->
   <div class="docs-sent">
-    <h2>Date at which No of Notices Sent</h2>
+    <h2>Notice History</h2>
     <table class="table">
       <thead>
         <tr>
@@ -25,38 +61,8 @@
 
   </div>
 
-  <!-- What is Pending -->
-  <div class="pending">
-    <h2>Pending Notices for Action</h2>
-    <ng-container *ngFor="let notice of pendingReportData">
-      <a href="{{ notice.url }}" target="_blank">{{ notice.title }}</a>
-    </ng-container>
-  </div>
 
-  <!-- Branch Confirmation Status -->
-  <div class="confirmation-status">
-    <h2>Branch Notice Status</h2>
-    <button mat-raised-button type="submit" (click)="sendReminder()">Send Reminder</button>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Branch Name</th>
-          <th>Total Notices</th>
-          <th>Seen but not Acknowledged</th>
-          <th>Acknowledged</th>
-          <th>Not Seen</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let report of confirmationReport">
-          <td>{{ report.branchName }}</td>
-          <td>{{ report.totalNotices }}</td>
-          <td>{{ report.seenNotAcknowledged }}</td>
-          <td>{{ report.acknowledged }}</td>
-          <td>{{ report.notSeen }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
+
 
 </div>

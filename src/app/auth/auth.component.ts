@@ -46,7 +46,7 @@ export class AuthComponent {
     this.authService.sendOtp(phone).then((success) => {
       if (success) {
         this.otpSent = true;
-        this.openSnackBar('Successful', 'Close');
+        this.openSnackBar('Successfully sent OTP to your registered mobile', 'Close');
         this.authForm.get('otp')!.enable();
       }
     });
@@ -56,22 +56,22 @@ export class AuthComponent {
     const otp = this.authForm.get('otp')!.value;
     this.authService.authenticate(otp).then((isAuthenticated) => {
       if (isAuthenticated) {
-        this.openSnackBar('Successful', 'Close');
-        if (this.userType === 'hrhqadmin') {
+        this.openSnackBar('Logged in successfully', 'Close');
+      console.log(this.userType)
+      if (this.userType === 'hrhqadmin') {
           localStorage.setItem('role', 'hrhqadmin');
         } else {
           localStorage.setItem('role', 'branchAdmin');
         }
         this.router.navigate(['/dashboard']);
-        setTimeout(() => {
-          location.reload()
-        }, 500);
       }
+      setTimeout(() => {
+        location.reload()
+      }, 500);
     });
   }
 
   showSubmitButton(): boolean {
     return this.otpSent && this.authForm.get('otp')!.value;
   }
-
 }

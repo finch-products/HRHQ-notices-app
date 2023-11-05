@@ -9,6 +9,7 @@ interface User {
   email: string;
   phone: string;
   address: string;
+  branch: string;
 }
 
 @Component({
@@ -27,6 +28,7 @@ export class UserFormComponent {
       email: 'john.doe@example.com',
       phone: '1234567890',
       address: '123 Main St',
+      branch: 'Branch 1'
     },
     {
       firstName: 'Shyam',
@@ -34,6 +36,7 @@ export class UserFormComponent {
       email: 'shyam.roy@example.com',
       phone: '1234567890',
       address: '123 Main St',
+      branch: 'Branch 2'
     },
     {
       firstName: 'Shewtha',
@@ -41,6 +44,7 @@ export class UserFormComponent {
       email: 'shewtha.rao@example.com',
       phone: '1234567890',
       address: '123 Main St',
+      branch: 'Branch 1'
     },
   ];
   constructor(private fb: FormBuilder, private snackBar: MatSnackBar,private branchService: BranchManagementService) {
@@ -50,6 +54,7 @@ export class UserFormComponent {
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       address: ['', Validators.required],
+      branch: ['', Validators.required],
     });
   }
 

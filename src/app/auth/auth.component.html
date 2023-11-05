@@ -3,10 +3,10 @@
 	
 	<div class="app-auth-form" fxLayout="column">
 		<div class="fler-r a-btn-master w-100">
-			<a href="/login/hrhq"  mat-button class="w-50" [ngClass]="{'active': userType === 'hrhq'}">
+			<a href="/login/hrhqadmin"  mat-button class="w-50" [ngClass]="{'active': userType === 'hrhqadmin'}">
 				HRHQ Login
 			</a>
-			<a href="/login" mat-button class="w-50" [ngClass]="{'active': userType !== 'hrhq'}">
+			<a href="/login" mat-button class="w-50" [ngClass]="{'active': userType !== 'hrhqadmin'}">
 				Branch Login
 			</a>
 		</div>
