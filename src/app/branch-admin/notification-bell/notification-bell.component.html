@@ -1,5 +1,6 @@
 <div #bellIcon (click)="toggleNoticeDetails()">
-  🔔
+  <!-- 🔔 -->
+  <mat-icon [matBadge]="pendingNoticesCount" matBadgeColor="warn">notifications</mat-icon>
 </div>
 
 <ng-template #overlayTemplate>

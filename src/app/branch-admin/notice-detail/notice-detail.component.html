@@ -1,55 +1,71 @@
 <div class="container p-4 notice-detail">
-  <div class="notice-detail">
-    <h2>Notice Detail</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Sl No</th>
-          <th>Notice Document</th>
-          <th>Uploaded On</th>
-          <th>Proof</th>
-          <th *ngIf="authService.getRole() === 'branchAdmin'">Upload Btn</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let notice of mockNotices; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td> <a href="{{ notice.document }}" target="_blank">{{ notice.title }}</a></td>
-          <td>{{ notice.uploadedOn | date }}</td>
-          <td *ngIf="authService.getRole() === 'branchAdmin'">
-            {{ uploadedProofs[i]?.[0]?.name }}
-          </td>
-          <td *ngIf="authService.getRole() === 'hrhqadmin'">
-            <a href="{{ notice.proof }}" target="_blank">{{ notice.title }}</a>
-          </td>
-          <td *ngIf="authService.getRole() === 'branchAdmin'">
-            <input type="file" #fileInput style="display:none" (change)="uploadProof(i, fileInput.files)" multiple>
-            <button (click)="fileInput.click()">Upload</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <h2>Notice History</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Sl No</th>
-          <th>Notice Document</th>
-          <th>Uploaded On</th>
-          <th>Proof</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let notice of mockNotices; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td><a href="{{ notice.document }}" target="_blank">{{ notice.title }}</a></td>
-          <td>{{ notice.uploadedOn | date }}</td>
-          <td>
-            <img *ngIf="notice.proof" [src]="notice.proof" alt="Proof" width="100">
-          </td>
-        </tr>
-      </tbody>
-    </table>
+	<div class="notice-detail">
+		<div class="card">
+			<h2>Notice Detail</h2>
+			<div class="overflow">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Sl No</th>
+							<th>Notice Document</th>
+							<th>Uploaded On</th>
+							<th>Proof</th>
+							<th *ngIf="authService.getRole() === 'branchAdmin'">Upload Btn</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let notice of mockNotices; let i = index">
+							<td>{{ i + 1 }}</td>
+							<td> <a href="{{ notice.document }}" target="_blank">{{ notice.title }}</a></td>
+							<td>{{ notice.uploadedOn | date }}</td>
+							<td *ngIf="authService.getRole() === 'branchAdmin'">
+								{{ uploadedProofs[i]?.[0]?.name }}
+							</td>
+							<td *ngIf="authService.getRole() === 'hrhqadmin'">
+								<a href="{{ notice.proof }}" target="_blank">{{ notice.title }}</a>
+							</td>
+							<td *ngIf="authService.getRole() === 'branchAdmin'">
+								<input type="file" #fileInput style="display:none"
+									(change)="uploadProof(i, fileInput.files)" multiple>
+								<button mat-flat-button color="primary" (click)="fileInput.click()">Upload</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
 
-  </div>
+		<div class="card">
+			<h2>Notice History</h2>
+			<div class="overflow">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Sl No</th>
+							<th>Notice Document</th>
+							<th>Uploaded On</th>
+							<th>Proof</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let notice of mockNotices; let i = index">
+							<td>{{ i + 1 }}</td>
+							<td><a href="{{ notice.document }}" target="_blank">{{ notice.title }}</a></td>
+							<td>{{ notice.uploadedOn | date }}</td>
+							<td>
+								<div>
+	
+								</div>
+								<img *ngIf="notice.proof" [src]="notice.proof" alt="Proof" width="100">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+
+
+	</div>
 </div>

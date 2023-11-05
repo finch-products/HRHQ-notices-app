@@ -28,7 +28,7 @@ export class UserFormComponent {
       email: 'john.doe@example.com',
       phone: '1234567890',
       address: '123 Main St',
-      branch: 'Branch 1'
+      branch: 'Bellandur'
     },
     {
       firstName: 'Shyam',
@@ -36,7 +36,7 @@ export class UserFormComponent {
       email: 'shyam.roy@example.com',
       phone: '1234567890',
       address: '123 Main St',
-      branch: 'Branch 2'
+      branch: 'Marathali'
     },
     {
       firstName: 'Shewtha',
@@ -44,7 +44,7 @@ export class UserFormComponent {
       email: 'shewtha.rao@example.com',
       phone: '1234567890',
       address: '123 Main St',
-      branch: 'Branch 1'
+      branch: 'Bellandur'
     },
   ];
   constructor(private fb: FormBuilder, private snackBar: MatSnackBar,private branchService: BranchManagementService) {

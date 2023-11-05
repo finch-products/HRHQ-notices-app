@@ -272,6 +272,10 @@ mat-checkbox {
     padding: 8px;
     border-radius: 8px;
     background-color: white;
+    .overflow{
+        overflow-x: scroll;
+        max-width: 100%;
+    }
 }
 
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {

@@ -3,11 +3,20 @@
     border-radius: 8px;
     background-color: white;
     margin-top: 20px;
+    
+    h2{
+        background-color: #3F50B530;
+        padding: 5px;
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+        margin-bottom: 5px;
+    }
 }
-h2{
-    background-color: #3F50B530;
-    padding: 5px;
-    width: 100%;
-    border-radius: 8px 8px 0 0;
-    margin-bottom: 5px;
+.table1 td, .table1 th{
+    text-align: center;
+}
+
+.notice-history-btn{
+    background-color: #0f02 !important;
+    margin: 0 10px 10px 0;
 }

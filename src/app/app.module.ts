@@ -18,6 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatBadgeModule} from '@angular/material/badge';
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth.service';
 import { DocumentUploadComponent } from './admin/document-upload/document-upload.component';
@@ -64,7 +65,8 @@ import { UserFormComponent } from './branch-admin/user-form/user-form.component'
     MatSnackBarModule,
     ReactiveFormsModule,
     HttpClientModule,
-    OverlayModule
+    OverlayModule,
+    MatBadgeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

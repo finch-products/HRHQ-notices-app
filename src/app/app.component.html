@@ -1,46 +1,56 @@
 <div *ngIf="showHeader">
-  <div class="notice-bar">
-    <div class="moving-text" *ngIf="authService.getRole() === 'hrhqadmin'">
-      <a href="/notice-detail"> You have 5 aknowledged notices. Click here to view more.</a>
+	<div class="notice-bar">
+		<div class="moving-text" *ngIf="authService.getRole() === 'hrhqadmin'">
+			<a href="/notice-detail"> You have 5 aknowledged notices. Click here to view more.</a>
 
-    </div>
-    <div class="moving-text" *ngIf="authService.getRole() === 'branchAdmin'">
-      <a href="/notice-detail"> You have 3 pending notices that needs your attention. Click here to take action.</a>
-    </div>
-  </div>
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav mode="over" class="sidenav">
-      <mat-nav-list>
-        <a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/dashboard"
-          (click)="sidenav.close()">Dashboard/Home</a>
-        <a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/user-management">Users</a>
-        <a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/admin/users" (click)="sidenav.close()">Branch
-          Management</a>
-        <a routerLink="/admin/upload" (click)="sidenav.close()">File Upload Management</a>
-        <a><app-notification-bell></app-notification-bell></a>
-        <!-- <a routerLink="/reminders">Reminders</a> -->
-        <a routerLink="/login" (click)="logout()">Logout</a>
-      </mat-nav-list>
-    </mat-sidenav>
+		</div>
+		<div class="moving-text" *ngIf="authService.getRole() === 'branchAdmin'">
+			<a href="/notice-detail"> You have 3 pending notices that needs your attention. Click here to take
+				action.</a>
+		</div>
+	</div>
+	<mat-sidenav-container>
+		<mat-sidenav #sidenav mode="over" class="sidenav">
+			<mat-nav-list>
+				<a class="side-nav-list" *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/dashboard"
+					(click)="sidenav.close()">Dashboard/Home</a>
+				<a class="side-nav-list" *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/user-management">Users</a>
+				<a class="side-nav-list" *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/admin/users"
+					(click)="sidenav.close()">Branch
+					Management</a>
+				<a class="side-nav-list" routerLink="/admin/upload" (click)="sidenav.close()">File Upload Management</a>
+				<a class="side-nav-list">
+					<div class="flex-r">
+						<div>Notice &nbsp;</div>
+						<div><app-notification-bell></app-notification-bell></div>
+					</div>
+				</a>
+				<!-- <a routerLink="/reminders">Reminders</a> -->
+				<a class="side-nav-list" routerLink="/login" (click)="logout()">Logout</a>
+			</mat-nav-list>
+		</mat-sidenav>
 
-    <mat-sidenav-content>
-      <mat-toolbar color="primary">
-        <button mat-icon-button (click)="sidenav.toggle()" *ngIf="isHandset$ | async">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>HRHQ Notices - {{title}}</span>
-        <span class="spacer"></span>
-        <nav class="desktop-menu">
-          <a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/dashboard">Dashboard</a>
-          <a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/user-management">Users</a>
-          <a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/admin/users">Branch</a>
-          <a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/admin/upload">Notices</a>
-          <a class="bell-icon"><app-notification-bell></app-notification-bell></a>
-          <!-- <a routerLink="/reminders">Reminders</a> -->
-          <a routerLink="/login" (click)="logout()">Logout</a>
-        </nav>
-      </mat-toolbar>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+		<mat-sidenav-content>
+			<mat-toolbar color="primary">
+				<button mat-icon-button (click)="sidenav.toggle()" *ngIf="isHandset$ | async">
+					<mat-icon>menu</mat-icon>
+				</button>
+				<span>HRHQ Notices - {{title}}</span>
+				<span class="spacer"></span>
+				<nav class="desktop-menu">
+					<a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/dashboard">Dashboard</a>
+					<a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/user-management">Users</a>
+					<a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/admin/users">Branch</a>
+					<a *ngIf="authService.getRole() === 'hrhqadmin'" routerLink="/admin/upload">Notices</a>
+					<a class="bell-icon"><app-notification-bell></app-notification-bell></a>
+					<!-- <a routerLink="/reminders">Reminders</a> -->
+					<a routerLink="/login" (click)="logout()">Logout</a>
+				</nav>
+			</mat-toolbar>
+			<router-outlet></router-outlet>
+		</mat-sidenav-content>
+	</mat-sidenav-container>
 </div>
-<router-outlet></router-outlet>
+<div *ngIf="!showHeader">
+	<router-outlet></router-outlet>
+</div>

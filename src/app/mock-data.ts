@@ -11,9 +11,9 @@ export const mockDocuments: Document[] = [
 ];
 
 export const mockBranches: Branch[] = [
-  { id: 1, name: 'Branch 1', confirmed: false, location: 'Mahadevpura' , city: 'Bengaluru', state: 'Karnataka' },
-  { id: 2, name: 'Branch 2', confirmed: true,  location: 'Whitefeild' , city: 'Bengaluru', state: 'Karnataka' },
-  { id: 3, name: 'Branch 3', confirmed: false,  location: 'Hebbal' , city: 'Bengaluru', state: 'Karnataka' },
+  { id: 1, name: 'Bellandur', confirmed: false, location: 'Mahadevpura' , city: 'Bengaluru', state: 'Karnataka' },
+  { id: 2, name: 'Marathali', confirmed: true,  location: 'Whitefeild' , city: 'Bengaluru', state: 'Karnataka' },
+  { id: 3, name: 'Gandhi Road', confirmed: false,  location: 'Hebbal' , city: 'Bengaluru', state: 'Karnataka' },
 ];
 
 

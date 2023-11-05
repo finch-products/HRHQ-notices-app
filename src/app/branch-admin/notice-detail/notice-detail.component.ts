@@ -11,6 +11,7 @@ interface Notice {
 
 @Component({
   selector: 'app-notice-detail',
+  styleUrls: ['./notice-detail.component.scss'],
   templateUrl: './notice-detail.component.html',
 })
 export class NoticeDetailComponent {

@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-document-upload',
+  styleUrls: ['./document-upload.component.scss'],
   templateUrl: './document-upload.component.html',
 })
 export class DocumentUploadComponent implements OnInit {
