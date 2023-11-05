@@ -1,7 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 
@@ -11,8 +11,10 @@ import { AuthService } from './auth.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  showHeader: boolean = true;
   title: string = '';
+
+  showHeader: boolean = true;
+  // title: string = '';
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
@@ -27,15 +29,12 @@ export class AppComponent {
   ) {}
 
   ngOnInit(): void {
-    if (localStorage.getItem('role') === 'hrhqadmin') {
-      this.title = 'HRHQ Admin';
-    } else {
-      this.title = 'Branch Admin';
-    }
+    this.authService.title$.subscribe(title => {
+      this.title = title;
+    });
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        // hide header on login screen
         this.showHeader = !event.urlAfterRedirects.includes('login');
         console.log(event.urlAfterRedirects);
         console.log(this.showHeader);
@@ -51,4 +50,5 @@ export class AppComponent {
       this.router.navigate(['/login']);
     }
   }
+
 }

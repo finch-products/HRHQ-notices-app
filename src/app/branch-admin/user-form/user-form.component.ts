@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { BranchManagementService } from 'src/app/admin/branch-management.service';
 
 interface User {
   firstName: string;
   lastName: string;
   email: string;
-  contact: string;
+  phone: string;
   address: string;
 }
 
@@ -17,36 +18,37 @@ interface User {
 })
 export class UserFormComponent {
   userForm: FormGroup;
+  branches = this.branchService.getBranches();
 
   users: User[] = [
     {
       firstName: 'John',
       lastName: 'Doe',
       email: 'john.doe@example.com',
-      contact: '1234567890',
+      phone: '1234567890',
       address: '123 Main St',
     },
     {
       firstName: 'Shyam',
       lastName: 'Roy',
       email: 'shyam.roy@example.com',
-      contact: '1234567890',
+      phone: '1234567890',
       address: '123 Main St',
     },
     {
       firstName: 'Shewtha',
       lastName: 'Rao',
       email: 'shewtha.rao@example.com',
-      contact: '1234567890',
+      phone: '1234567890',
       address: '123 Main St',
     },
   ];
-  constructor(private fb: FormBuilder, private snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar,private branchService: BranchManagementService) {
     this.userForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      contact: ['', Validators.required],
+      phone: ['', Validators.required],
       address: ['', Validators.required],
     });
   }

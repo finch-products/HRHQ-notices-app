@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Document, Branch, Notice } from '../model/dashboard.model';
-import { DocumentService } from '../document.service';
-import { mockBranches, notices } from '../mock-data';
+import { mockBranches, notices, noticeCount } from '../mock-data';
+import { EmailTemplateComponent } from '../email-template/email-template.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,50 +15,50 @@ export class DashboardComponent {
   ];
   notices: Notice[] = notices;
   branches: Branch[] = mockBranches;
-  pendingReport: { branchName: string; pendingCount: number }[] = [];
+  pendingReportData: { title: string; url: string }[] = [];
   branchesNotPosted: Branch[] = [];
   unacknowledgedNotices: { branch: Branch; notice: Notice }[] = [];
+  noticeCount = noticeCount;
 
   confirmationReport: {
     branchName: string;
     totalNotices: number;
-    confirmedNotices: number;
-    pendingNotices: number;
+    seenNotAcknowledged: number;
+    acknowledged: number;
+    notSeen: number;
   }[] = [];
 
-  reportData: { date: string; branch: string; documentCount: number }[] = [];
+  reportData: { date: string; documents: string[] }[] = [];
 
-  constructor(private documentService: DocumentService) {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.reportData = this.documentService.getDocumentsByDateAndBranch();
+    this.generateReport();
     this.generatePendingReport();
     this.generateConfirmationReport();
-    this.findBranchesNotPosted();
-    this.findUnacknowledgedNotices();
+  }
+
+  generateReport(): void {
+    const grouped: { [key: string]: { date: string; documents: string[] } } =
+      {};
+
+    this.documents.forEach((doc) => {
+      const key = doc.sentOn;
+      grouped[key] = grouped[key] || { date: doc.sentOn, documents: [] };
+    });
+
+    this.reportData = Object.values(grouped);
   }
 
   generatePendingReport(): void {
     console.log('generatePendingReport called');
-    const pendingCountsByBranch: { [key: number]: number } = {};
 
     this.notices.forEach((notice) => {
       if (notice.status === 'pending') {
-        pendingCountsByBranch[notice.branchId] =
-          (pendingCountsByBranch[notice.branchId] || 0) + 1;
+        // Push the title and url of the notice
+        this.pendingReportData.push({ title: notice.title, url: notice.url });
       }
     });
-
-    console.log('pendingCountsByBranch:', pendingCountsByBranch);
-
-    this.pendingReport = Object.keys(pendingCountsByBranch).map((branchId) => {
-      const branch = this.branches.find((b) => b.id === Number(branchId));
-      return {
-        branchName: branch ? branch.name : 'Unknown',
-        pendingCount: pendingCountsByBranch[Number(branchId)],
-      };
-    });
-    console.log('pendingReport:', this.pendingReport);
   }
 
   generateConfirmationReport(): void {
@@ -65,42 +66,38 @@ export class DashboardComponent {
       const branchNotices = this.notices.filter(
         (notice) => notice.branchId === branch.id
       );
-      const confirmedNotices = branchNotices.filter(
-        (notice) => notice.status === 'confirmed'
+      const seenNotAcknowledged = branchNotices.filter(
+        (notice) =>
+          notice.seen === true &&
+          notice.confirmed === false &&
+          notice.status === 'pending'
       ).length;
-      const pendingNotices = branchNotices.filter(
-        (notice) => notice.status === 'pending'
+      const acknowledged = branchNotices.filter(
+        (notice) =>
+          notice.seen === true &&
+          notice.confirmed === true &&
+          notice.status === 'confirmed'
       ).length;
+      const notSeen = branchNotices.filter(
+        (notice) =>
+          notice.seen === false &&
+          notice.status === 'pending' &&
+          notice.confirmed === false
+      ).length;
+
       return {
         branchName: branch.name,
         totalNotices: branchNotices.length,
-        confirmedNotices,
-        pendingNotices,
+        seenNotAcknowledged,
+        acknowledged,
+        notSeen,
       };
     });
   }
 
-  findBranchesNotPosted(): void {
-    const postedBranchIds = new Set(
-      this.notices.map((notice) => notice.branchId)
-    );
-    this.branchesNotPosted = this.branches.filter(
-      (branch) => !postedBranchIds.has(branch.id)
-    );
-  }
-
-  findUnacknowledgedNotices(): void {
-    this.unacknowledgedNotices = this.notices
-      .filter((notice) => notice.seen && !notice.confirmed)
-      .map((notice) => {
-        const branch = this.branches.find(
-          (branch) => branch.id === notice.branchId
-        );
-        return { branch, notice };
-      })
-      .filter((item) => item.branch !== undefined) as {
-      branch: Branch;
-      notice: Notice;
-    }[];
+  sendReminder() {
+    this.dialog.open(EmailTemplateComponent, {
+      width: '400px',
+    });
   }
 }

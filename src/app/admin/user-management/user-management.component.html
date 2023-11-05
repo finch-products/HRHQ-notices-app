@@ -3,19 +3,60 @@
 	<!-- <h2>Add Branch</h2> -->
 	<h2>Branch Lists</h2>
 	<div class="form flex-r">
-		<!-- <mat-form-field appearance="outline">
-      <mat-label>Branch Name</mat-label>
-      <input matInput [(ngModel)]="branchName" name="branchName">
-    </mat-form-field> -->
+
 		<input type="text" placeholder="Type to add.." class="col-8 col-lg-10">
-		<button mat-flat-button class="col-4 col-lg-2" color="primary" (click)="addBranch()">
+		<!-- <button mat-flat-button class="col-4 col-lg-2" color="primary" (click)="addBranch()">
 			<mat-icon>add</mat-icon>
 			New Branch
-		</button>
+		</button> -->
 	</div>
 
 
 	<div *ngFor="let branch of branches" class="branch-list card">
 		{{ branch }}
+	</div>
+
+	<h2>Add Branch</h2>
+	<form [formGroup]="branchForm" (ngSubmit)="onSubmit()" class="barnch-form">
+		<div class="row">
+			<mat-form-field appearance="outline" class="col">
+				<mat-label>Branch Name</mat-label>
+				<input matInput formControlName="name" name="name">
+			</mat-form-field>
+			<mat-form-field appearance="outline" class="col">
+				<mat-label>Location</mat-label>
+				<input matInput formControlName="location" name="location">
+			</mat-form-field>
+			<mat-form-field appearance="outline" class="col">
+				<mat-label>City</mat-label>
+				<input matInput formControlName="city" name="city">
+			</mat-form-field>
+			<mat-form-field appearance="outline" class="col">
+				<mat-label>State</mat-label>
+				<input matInput formControlName="state" name="state">
+			</mat-form-field>
+		</div>
+		<button mat-raised-button [disabled]="branchForm.invalid">Add Branch</button>
+	</form>
+	<div class="branch-wra pt-4">
+		<h2>Branch Lists</h2>
+		<table class="table" *ngIf="branches.length > 0">
+			<thead>
+				<tr>
+					<th>Branch Name</th>
+					<th>Location</th>
+					<th>City</th>
+					<th>State</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let branch of branches">
+					<td>{{ branch.name }}</td>
+					<td>{{ branch.location }}</td>
+					<td>{{ branch.city }}</td>
+					<td>{{ branch.state }}</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>

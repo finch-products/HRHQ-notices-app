@@ -11,6 +11,9 @@ export interface Branch {
   id: number;
   name: string;
   confirmed: boolean;
+  location: string;
+  city: string;
+  state: string;
 }
 
 export interface GroupedEntry {
@@ -25,4 +28,5 @@ export interface Notice {
   seen: boolean;
   confirmed: boolean;
   title: string;
+  url: string;
 }
