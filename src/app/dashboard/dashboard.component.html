@@ -26,7 +26,6 @@
 		</div>
 		<div align="end" class="pad">
 			<button mat-flat-button color="primary" type="submit" (click)="sendReminder()"><mat-icon>mail</mat-icon> Send Email Reminder</button>
-
 		</div>
 
 	</div>
@@ -36,7 +35,7 @@
 		<h2>Pending Notices for Action</h2>
 		<div class="flex-r pad">
 			<ng-container *ngFor="let notice of pendingReportData">
-				<a mat-flat-button class="notice-history-btn" href="{{ notice.url }}" target="_blank">{{ notice.title }}</a>
+				<a mat-flat-button class="notice-history-btn" href="/notice-detail">{{ notice.title }}</a>
 			</ng-container>
 		</div>
 
