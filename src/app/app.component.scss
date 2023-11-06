@@ -25,7 +25,13 @@ mat-toolbar {
 
 .moving-text{
   width: 100vw;
-  overflow: hidden;
+  // overflow: hidden;
+  background-color: red;
+    padding: 10px;
+  a{
+    color: white;
+    font-weight: bold;
+  }
 }
 .side-nav-list{
   padding: 10px;

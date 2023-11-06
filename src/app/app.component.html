@@ -1,13 +1,5 @@
 <div *ngIf="showHeader">
-  <div class="notice-bar">
-    <div class="moving-text" *ngIf="authService.getRole() === 'hrhqadmin'">
-      <a href="/notice-detail"> You have 5 aknowledged notices. Click here to view more.</a>
-    </div>
-    <div class="moving-text" *ngIf="authService.getRole() === 'branchAdmin'">
-      <a href="/notice-detail"> You have 3 pending notices that needs your attention. Click here to take
-        action.</a>
-    </div>
-  </div>
+
   <mat-sidenav-container>
     <mat-sidenav #sidenav mode="over" class="sidenav">
       <mat-nav-list>
@@ -47,10 +39,17 @@
           <a routerLink="/login" (click)="logout()">Logout</a>
         </nav>
       </mat-toolbar>
+      <div class="notice-bar">
+        <div class="moving-text">
+          <a href="/notice-detail"> There are few actions need your attention</a>
+        </div>
+
+      </div>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
 <div *ngIf="!showHeader">
+
   <router-outlet></router-outlet>
 </div>

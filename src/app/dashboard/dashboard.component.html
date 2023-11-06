@@ -8,7 +8,7 @@
 					<tr>
 						<th>Branch Name</th>
 						<th class="red-bold">Not seen</th>
-						<th class="red">Seen but not Acknowledged</th>
+						<th class="red-bold">Seen but not Acknowledged</th>
 						<th>Acknowledged</th>
 						<th>Total Notices</th>
 					</tr>
@@ -16,8 +16,8 @@
 				<tbody>
 					<tr *ngFor="let report of confirmationReport">
 						<td>{{ report.branchName }}</td>
-						<td class="red-bold">{{ report.notSeen }}</td>
-						<td class="red">{{ report.seenNotAcknowledged }}</td>
+						<td>{{ report.notSeen }}</td>
+						<td>{{ report.seenNotAcknowledged }}</td>
 						<td>{{ report.acknowledged }}</td>
 						<td>{{ report.totalNotices }}</td>
 					</tr>
@@ -44,7 +44,7 @@
 
 	<!-- Date at which docs were sent -->
 	<div class="docs-sent card">
-		<h2>Notice History</h2>
+		<h2>Notice History</h2>
 		<table class="table">
 			<thead>
 				<tr>

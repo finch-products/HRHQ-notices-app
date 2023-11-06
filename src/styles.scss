@@ -185,7 +185,6 @@ $nav-items-color: #001e00;
 .nowrap {
   white-space: nowrap;
 }
-
 @media only screen and (max-width: 575px) {
   .pad-icon {
     padding: 10px;
@@ -302,11 +301,9 @@ mat-tab-header {
   }
 }
 .notice-bar {
-  background-color: lightblue;
-  padding: 5px;
   text-align: center;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 9%;
   z-index: 1000;
 }
 
@@ -339,4 +336,35 @@ mat-tab-header {
 mat-toolbar span {
   display: flex;
   align-items: center;
+}
+
+.mat-toolbar {
+  position: fixed;
+  z-index: 9999999;
+}
+
+.container {
+  margin-top: 8%;
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .notice-bar {
+    top: 5%;
+  }
+  .container {
+    margin-top: 15%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    margin-top: 15%;
+  }
+  .notice-bar {
+    top: 7%;
+  }
+  .header-logo {
+    height: 70px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
 }

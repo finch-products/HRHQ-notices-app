@@ -26,7 +26,7 @@
 			<div align="end">
 				<button mat-stroked-button color="primary" type="button" (click)="sendOtp()" *ngIf="!otpSent"
 				[disabled]="otpSent || !authForm.get('phone')!.valid">Send OTP</button>
-				<button mat-flat-button color="primary" *ngIf="showSubmitButton()" type="submit" [disabled]="!authForm.get('otp')!.valid">Login</button>
+				<!-- <button mat-flat-button color="primary" *ngIf="showSubmitButton()" type="submit" [disabled]="!authForm.get('otp')!.valid">Login</button> -->
 			</div>
 		</form>
 	</div>

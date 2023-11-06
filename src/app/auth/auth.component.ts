@@ -28,12 +28,14 @@ export class AuthComponent {
     });
     this.route.paramMap.subscribe((params) => {
       this.userType = params.get('userType');
-      this.title = this.userType === 'hrhqadmin' ? 'Login as HRHQ Admin' : 'Login as Branch Admin';
+      this.title =
+        this.userType === 'hrhqadmin'
+          ? 'Login as HRHQ Admin'
+          : 'Login as Branch Admin';
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
@@ -43,10 +45,19 @@ export class AuthComponent {
   }
   sendOtp() {
     const phone = this.authForm.get('phone')!.value;
+
     this.authService.sendOtp(phone).then((success) => {
-        this.otpSent = true;
-        this.openSnackBar('Successfully sent OTP to your registered mobile', 'Close');
-        this.authForm.get('otp')!.enable();
+      // this.otpSent = true;
+      this.openSnackBar('Successfully Logged in', 'Close');
+
+      if (this.userType === 'hrhqadmin') {
+        localStorage.setItem('role', 'hrhqadmin');
+      } else {
+        localStorage.setItem('role', 'branchAdmin');
+      }
+      this.router.navigate(['/dashboard']);
+
+      // this.authForm.get('otp')!.enable();
     });
   }
 
@@ -54,17 +65,17 @@ export class AuthComponent {
     const otp = this.authForm.get('otp')!.value;
     this.authService.authenticate(otp).then((isAuthenticated) => {
       // if (isAuthenticated) {
-        this.openSnackBar('Logged in successfully', 'Close');
-      console.log(this.userType)
+      this.openSnackBar('Logged in successfully', 'Close');
+      console.log(this.userType);
       if (this.userType === 'hrhqadmin') {
-          localStorage.setItem('role', 'hrhqadmin');
-        } else {
-          localStorage.setItem('role', 'branchAdmin');
-        }
-        this.router.navigate(['/dashboard']);
+        localStorage.setItem('role', 'hrhqadmin');
+      } else {
+        localStorage.setItem('role', 'branchAdmin');
+      }
+      this.router.navigate(['/dashboard']);
       // }
       setTimeout(() => {
-        location.reload()
+        location.reload();
       }, 500);
     });
   }
