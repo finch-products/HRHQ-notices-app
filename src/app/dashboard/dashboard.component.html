@@ -1,14 +1,14 @@
 <div class="dashboard container p-4">
 	<!-- Branch Confirmation Status -->
-	<div class="confirmation-status card">
+	<div class="confirmation-status card" *ngIf="authService.getRole() === 'hrhqadmin'">
 		<h2>Branch Notice Status</h2>
 		<div class="overflow">
 			<table class="table table1">
 				<thead>
 					<tr>
 						<th>Branch Name</th>
-						<th>Not Received</th>
-						<th>Received</th>
+						<th class="red-bold">Not seen</th>
+						<th class="red">Seen but not Acknowledged</th>
 						<th>Acknowledged</th>
 						<th>Total Notices</th>
 					</tr>
@@ -16,8 +16,8 @@
 				<tbody>
 					<tr *ngFor="let report of confirmationReport">
 						<td>{{ report.branchName }}</td>
-						<td>{{ report.notSeen }}</td>
-						<td>{{ report.seenNotAcknowledged }}</td>
+						<td class="red-bold">{{ report.notSeen }}</td>
+						<td class="red">{{ report.seenNotAcknowledged }}</td>
 						<td>{{ report.acknowledged }}</td>
 						<td>{{ report.totalNotices }}</td>
 					</tr>
@@ -39,7 +39,7 @@
 				<a mat-flat-button class="notice-history-btn" href="{{ notice.url }}" target="_blank">{{ notice.title }}</a>
 			</ng-container>
 		</div>
-		
+
 	</div>
 
 	<!-- Date at which docs were sent -->

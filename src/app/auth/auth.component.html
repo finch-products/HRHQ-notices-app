@@ -1,6 +1,6 @@
 <div class="login-wrap" fxLayout="column" fxLayoutAlign="center center" style="height: 100vh;">
 
-	
+
 	<div class="app-auth-form" fxLayout="column">
 		<div class="fler-r a-btn-master w-100">
 			<a href="/login/hrhqadmin"  mat-button class="w-50" [ngClass]="{'active': userType === 'hrhqadmin'}">
@@ -10,14 +10,14 @@
 				Branch Login
 			</a>
 		</div>
-		
+
 		<form [formGroup]="authForm" (ngSubmit)="submit()">
 			<h2>{{title}}</h2>
 			<mat-form-field appearance="outline">
 				<mat-label>Phone Number</mat-label>
 				<input matInput formControlName="phone" type="tel" required />
 			</mat-form-field>
-			
+
 			<mat-form-field *ngIf="otpSent" appearance="outline">
 				<mat-label>OTP</mat-label>
 				<input matInput formControlName="otp" required />

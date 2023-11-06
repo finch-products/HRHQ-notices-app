@@ -3,6 +3,7 @@ import { Document, Branch, Notice } from '../model/dashboard.model';
 import { mockBranches, notices, noticeCount } from '../mock-data';
 import { EmailTemplateComponent } from '../email-template/email-template.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,7 +31,7 @@ export class DashboardComponent {
 
   reportData: { date: string; documents: string[] }[] = [];
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, public authService: AuthService) {}
 
   ngOnInit(): void {
     this.generateReport();

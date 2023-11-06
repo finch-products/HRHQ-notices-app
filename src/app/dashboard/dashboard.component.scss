@@ -3,7 +3,7 @@
     border-radius: 8px;
     background-color: white;
     margin-top: 20px;
-    
+
     h2{
         background-color: #3F50B530;
         padding: 5px;
@@ -19,4 +19,14 @@
 .notice-history-btn{
     background-color: #0f02 !important;
     margin: 0 10px 10px 0;
+}
+
+.red-bold{
+  color: red;
+  font-weight: bold;
+}
+
+.red{
+  color: red;
+  font-weight: normal;
 }

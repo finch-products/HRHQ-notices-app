@@ -22,32 +22,14 @@ a {
 
 .app-auth-form {
   background-color: #ffffff;
-//   padding-top: 0px;
   border-radius: 8px;
   border: 1px solid #ccc;
   width: 350px;
   max-width: 100%;
 }
-
-// button {
-//   background-color: #1a73e8;
-//   color: #fff;
-//   border: 1px solid #1a73e8;
-//   padding: 10px;
-//   border-radius: 5px;
-//   margin-right: 10px;
-//   cursor: pointer;
-//   &.otp-btn {
-//     background-color: transparent;
-//     background-color: white;
-//     color: #1a73e8;
-//     margin-bottom: 10px;
-//   }
-// }
-
-.mat-drawer-inner-container{
-    height: 100vh;
-    z-index: 1000;
+.mat-drawer-inner-container {
+  height: 100vh;
+  z-index: 1000;
 }
 
 form mat-form-field {
@@ -92,8 +74,9 @@ mat-form-field {
 
 .custom-snackbar {
   z-index: 9999 !important;
+  background-color: #198754 !important;
+  color: #ffffff;
 }
-
 
 $brand-red: 200;
 $brand-green: 50;
@@ -113,230 +96,247 @@ $box-shadow: 0 1px 4px 1px rgba(186, 191, 199, 0.4);
 
 $nav-items-color: #001e00;
 
-
-
 .flex-c,
 .flex-r {
-    display: flex;
+  display: flex;
 
-    &.jcc {
-        justify-content: center;
-    }
+  &.jcc {
+    justify-content: center;
+  }
 
-    &.jcsb {
-        justify-content: space-between;
-    }
+  &.jcsb {
+    justify-content: space-between;
+  }
 
-    &.jcsa {
-        justify-content: space-around;
-    }
+  &.jcsa {
+    justify-content: space-around;
+  }
 
-    &.jcse {
-        justify-content: space-evenly;
-    }
+  &.jcse {
+    justify-content: space-evenly;
+  }
 
-    &.jcr {
-        justify-content: right;
-    }
+  &.jcr {
+    justify-content: right;
+  }
 
-    &.aic {
-        align-items: center;
-    }
+  &.aic {
+    align-items: center;
+  }
 
-    &.ais {
-        align-items: stretch;
-    }
+  &.ais {
+    align-items: stretch;
+  }
 
-    &.aie {
-        align-items: flex-end;
-    }
+  &.aie {
+    align-items: flex-end;
+  }
 }
 
 .flex-c {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .flex-r {
-    flex-direction: row;
-    flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .h-100 {
-    height: 100%;
+  height: 100%;
 }
 
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .fs-icon {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .pad-icon {
-    padding: 10px 45px;
+  padding: 10px 45px;
 }
 
 .pad {
-    padding: 10px;
+  padding: 10px;
 }
 
 .pad-top {
-    padding: 10px 0px;
+  padding: 10px 0px;
 }
 
 .odd-color {
-    color: #0008;
+  color: #0008;
 }
 
 .icon-14 {
-    font-size: 14px;
-    height: 14px !important;
-    width: 14px !important;
+  font-size: 14px;
+  height: 14px !important;
+  width: 14px !important;
 }
 
 .icon-20 {
-    font-size: 20px;
-    height: 20px !important;
-    width: 20px !important;
+  font-size: 20px;
+  height: 20px !important;
+  width: 20px !important;
 }
 
 .nowrap {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 @media only screen and (max-width: 575px) {
-    .pad-icon {
-        padding: 10px;
-    }
+  .pad-icon {
+    padding: 10px;
+  }
 
-    .container-fluid {
-        padding: 10px !important;
-    }
+  .container-fluid {
+    padding: 10px !important;
+  }
 }
 
 .border {
-    border-radius: 10px;
-    margin: 5px;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 .d-none {
-    display: none;
+  display: none;
 }
 
 .pointer {
-    cursor: pointer !important;
+  cursor: pointer !important;
 }
 
 @for $i from 0 through 100 {
-    .w-#{$i} {
-        width: #{$i}+ "%";
-    }
+  .w-#{$i} {
+    width: #{$i}+ "%";
+  }
 }
 
 .selected {
-    background-color: #3f51b5 !important;
-    color: white !important;
-    border-radius: 10px;
+  background-color: #3f51b5 !important;
+  color: white !important;
+  border-radius: 10px;
 }
 
 .brand-color {
-    color: $brand-color !important;
+  color: $brand-color !important;
 }
 
 .shadow {
-    box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
 }
 
 .icon {
-    margin: 0px 10px;
+  margin: 0px 10px;
 }
 .p-datatable-header {
-    border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0;
 }
 
 .p-autocomplete-input {
-    font-size: 0.875rem;
-    padding: 0.65625rem 0.65625rem;
+  font-size: 0.875rem;
+  padding: 0.65625rem 0.65625rem;
 }
 
 .mdc-label {
-    margin-left: -10px !important;
+  margin-left: -10px !important;
 }
 
 mat-checkbox {
-    margin-left: -10px;
-    margin-right: 20px;
+  margin-left: -10px;
+  margin-right: 20px;
 }
 .card {
-    padding: 8px;
-    border-radius: 8px;
-    background-color: white;
-    .overflow{
-        overflow-x: scroll;
-        max-width: 100%;
-    }
+  padding: 8px;
+  border-radius: 8px;
+  background-color: white;
+  .overflow {
+    overflow-x: scroll;
+    max-width: 100%;
+  }
 }
 
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-    background-color: white !important;
-    border: 0.5px solid #aaa;
-    border-radius: 8px;
-    border-bottom: 0;
+  background-color: white !important;
+  border: 0.5px solid #aaa;
+  border-radius: 8px;
+  border-bottom: 0;
 }
 
 .p-calendar .p-datepicker {
-    width: 350px;
-    td {
-        padding: 0;
-    }
+  width: 350px;
+  td {
+    padding: 0;
+  }
 }
 
 ::ng-deep .p-calendar {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 mat-tab-header {
-    background-color: white;
-    border-radius: 0 0 10px 10px;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
 }
 
-.report{
-    .p-datatable{
-        .p-datatable-thead > tr > th{
-            text-align: center !important;
-            border: 0.5px solid #aaa;
-            background-color: #ebedf0;
-            color: #555;
-        }
-        &.p-datatable-sm .p-datatable-tbody > tr > td{
-            border: 0.5px solid #ddd;
-        }
-        .p-datatable-thead > tr:first-child > th{
-            padding: 15px;
-        }
-        &.p-datatable-sm .p-datatable-tbody > tr:hover{
-            background-color: #eee;
-        }
+.report {
+  .p-datatable {
+    .p-datatable-thead > tr > th {
+      text-align: center !important;
+      border: 0.5px solid #aaa;
+      background-color: #ebedf0;
+      color: #555;
     }
+    &.p-datatable-sm .p-datatable-tbody > tr > td {
+      border: 0.5px solid #ddd;
+    }
+    .p-datatable-thead > tr:first-child > th {
+      padding: 15px;
+    }
+    &.p-datatable-sm .p-datatable-tbody > tr:hover {
+      background-color: #eee;
+    }
+  }
 }
 .notice-bar {
   background-color: lightblue;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-
 @keyframes marquee {
-  0% { text-indent: -100% }
-  100% { text-indent: 100% }
+  0% {
+    text-indent: -100%;
+  }
+  100% {
+    text-indent: 100%;
+  }
 }
 
 .moving-text {
   display: inline-block;
   white-space: nowrap;
-  animation: marquee 10s linear infinite;
+  animation: marquee 20s linear infinite;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 100px;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+mat-toolbar span {
+  display: flex;
+  align-items: center;
 }

@@ -10,7 +10,7 @@ import { UserFormComponent } from './branch-admin/user-form/user-form.component'
 
 const routes: Routes = [
   { path: 'admin/upload', component: DocumentUploadComponent },
-  { path: 'admin/users', component: UserManagementComponent },
+  { path: 'branch-management', component: UserManagementComponent },
   { path: 'user-management', component: UserFormComponent  },
   { path: 'login/:userType', component: AuthComponent },
   { path: 'login', component: AuthComponent },

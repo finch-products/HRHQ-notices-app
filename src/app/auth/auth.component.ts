@@ -44,18 +44,16 @@ export class AuthComponent {
   sendOtp() {
     const phone = this.authForm.get('phone')!.value;
     this.authService.sendOtp(phone).then((success) => {
-      if (success) {
         this.otpSent = true;
         this.openSnackBar('Successfully sent OTP to your registered mobile', 'Close');
         this.authForm.get('otp')!.enable();
-      }
     });
   }
 
   submit() {
     const otp = this.authForm.get('otp')!.value;
     this.authService.authenticate(otp).then((isAuthenticated) => {
-      if (isAuthenticated) {
+      // if (isAuthenticated) {
         this.openSnackBar('Logged in successfully', 'Close');
       console.log(this.userType)
       if (this.userType === 'hrhqadmin') {
@@ -64,7 +62,7 @@ export class AuthComponent {
           localStorage.setItem('role', 'branchAdmin');
         }
         this.router.navigate(['/dashboard']);
-      }
+      // }
       setTimeout(() => {
         location.reload()
       }, 500);
