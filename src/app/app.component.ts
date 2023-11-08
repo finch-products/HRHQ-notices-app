@@ -44,9 +44,10 @@ export class AppComponent {
 
   logout() {
     if (localStorage.getItem('role') === 'hrhqadmin') {
-      this.router.navigate(['/login/hrhqadmin']);
       localStorage.removeItem('role');
+      this.router.navigate(['/login/hrhqadmin']);
     } else {
+      localStorage.removeItem('role');
       this.router.navigate(['/login']);
     }
   }
