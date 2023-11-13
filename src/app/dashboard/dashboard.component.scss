@@ -30,3 +30,17 @@
   color: red;
   font-weight: normal;
 }
+
+.common-notice-btn {
+  background-color: #ADD8E6 !important; /* Light grey for common notices */
+  /* other styles */
+}
+
+.branch-notice-btn {
+  background-color: #ffbf00 !important; /* Light green for branch-specific notices */
+  /* other styles */
+}
+
+span, .pending a{
+  margin-right: 10px;
+}

@@ -1,69 +1,74 @@
 <div class="dashboard container p-4">
-	<!-- Branch Confirmation Status -->
-	<div class="confirmation-status card" *ngIf="authService.getRole() === 'hrhqadmin'">
-		<h2>Branch Notice Status</h2>
-		<div class="overflow">
-			<table class="table table1">
-				<thead>
-					<tr>
-						<th>Branch Name</th>
-						<th class="red-bold">Not seen</th>
-						<th class="red-bold">Seen but not Acknowledged</th>
-						<th>Acknowledged</th>
-						<th>Total Notices</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr *ngFor="let report of confirmationReport">
-						<td>{{ report.branchName }}</td>
-						<td>{{ report.notSeen }}</td>
-						<td>{{ report.seenNotAcknowledged }}</td>
-						<td>{{ report.acknowledged }}</td>
-						<td>{{ report.totalNotices }}</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div align="end" class="pad">
-			<button mat-flat-button color="primary" type="submit" (click)="sendReminder()"><mat-icon>mail</mat-icon> Send Email Reminder</button>
-		</div>
+  <!-- Branch Confirmation Status -->
+  <div class="confirmation-status card" *ngIf="authService.getRole() === 'hrhqadmin'">
+    <h2>Branch Notice Status</h2>
+    <div class="overflow">
+      <table class="table table1">
+        <thead>
+          <tr>
+            <th>Branch Name</th>
+            <th class="red-bold">Not seen</th>
+            <th class="red-bold">Seen but not Acknowledged</th>
+            <th>Acknowledged</th>
+            <th>Total Notices</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let report of confirmationReport">
+            <td>{{ report.branchName }}</td>
+            <td>{{ report.notSeen }}</td>
+            <td>{{ report.seenNotAcknowledged }}</td>
+            <td>{{ report.acknowledged }}</td>
+            <td>{{ report.totalNotices }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div align="end" class="pad">
+      <button mat-flat-button color="primary" type="submit" (click)="sendReminder()"><mat-icon>mail</mat-icon> Send
+        Email Reminder</button>
+    </div>
 
-	</div>
+  </div>
 
-	<!-- What is Pending -->
-	<div class="pending card">
-		<h2>Pending Notices for Action</h2>
-		<div class="flex-r pad">
-			<ng-container *ngFor="let notice of pendingReportData">
-				<a mat-flat-button class="notice-history-btn" href="/notice-detail">{{ notice.title }}</a>
-			</ng-container>
-		</div>
+  <!-- What is Pending -->
+  <div class="pending card">
+    <h2>Pending Notices for Action</h2>
+    <div class="flex-r pad">
+      <ng-container *ngFor="let notice of pendingReportData">
+        <a mat-flat-button [ngClass]="{'common-notice-btn': notice.title.includes('Common Notice'),
+                   'branch-notice-btn': notice.title.includes('Specific Branch Notice')}" href="/notice-detail">{{
+          notice.title }}</a>
+      </ng-container>
+    </div>
 
-	</div>
+  </div>
 
-	<!-- Date at which docs were sent -->
-	<div class="docs-sent card">
-		<h2>Notice History</h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Date</th>
-					<th>Documents</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let entry of noticeCount">
-					<td>{{ entry.date | date }}</td>
-					<td>
-						<span *ngFor="let document of entry.documents">
-							<a class="notice-history-btn" mat-flat-button href="{{ document.url }}" target="_blank">{{ document.title }}</a>
-						</span>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+  <!-- Date at which docs were sent -->
+  <div class="docs-sent card">
+    <h2>Notice History</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Documents</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entry of noticeCount">
+          <td>{{ entry.date | date }}</td>
+          <td>
+            <span *ngFor="let document of entry.documents">
+              <a [ngClass]="{'common-notice-btn': document.title.includes('Common Notice'),
+              'branch-notice-btn': document.title.includes('Specific Branch Notice')}" mat-flat-button
+                href="{{ document.url }}" target="_blank">{{ document.title }}</a>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-	</div>
+  </div>
 
 
 

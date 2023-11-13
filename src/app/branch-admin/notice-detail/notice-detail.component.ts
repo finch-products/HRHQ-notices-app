@@ -16,11 +16,11 @@ interface Notice {
 })
 export class NoticeDetailComponent {
   mockNotices: Notice[] = [
-    { title: 'Notice 1', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
-    { title: 'Notice 2', document: 'assets/notices/notice-2.jpeg', uploadedOn: '2021-10-02', proof: 'assets/notices/notice-2.jpeg' },
-    { title: 'Notice 3', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
-    { title: 'Notice 4', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
-    { title: 'Notice 5', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
+    { title: 'Common Notice', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
+    { title: 'Specific Branch Notice', document: 'assets/notices/notice-2.jpeg', uploadedOn: '2021-10-02', proof: 'assets/notices/notice-2.jpeg' },
+    { title: 'Specific Branch Notice', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
+    { title: 'Common Notice', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
+    { title: 'Common Notice', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
   ];
 
   @Input() notices: Notice[] = [];

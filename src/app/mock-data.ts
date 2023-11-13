@@ -18,34 +18,34 @@ export const mockBranches: Branch[] = [
 
 
 export const notices: Notice[] = [
-  { branchId: 1, status: 'pending',  seen: false, confirmed: false, title: 'Notice 1',  url: 'assets/notices/notice-1.jpeg'  },
-  { branchId: 1, status: 'confirmed', seen: true, confirmed: true, title: 'Notice 2',  url: 'assets/notices/notice-2.jpeg' },
-  { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Notice 3',  url: 'assets/notices/notice-3.jpeg' },
-  { branchId: 2, status: 'pending',  seen: true, confirmed: false, title: 'Notice 4',  url: 'assets/notices/notice-2.jpeg' },
-  { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Notice 3',  url: 'assets/notices/notice-3.jpeg' },
-  { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Notice 4',  url: 'assets/notices/notice-2.jpeg' }
+  { branchId: 1, status: 'pending',  seen: false, confirmed: false, title: 'Specific Branch Notice',  url: 'assets/notices/notice-1.jpeg'  },
+  { branchId: 1, status: 'confirmed', seen: true, confirmed: true, title: 'Specific Branch Notice',  url: 'assets/notices/notice-2.jpeg' },
+  { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Specific Branch Notice',  url: 'assets/notices/notice-3.jpeg' },
+  { branchId: 2, status: 'pending',  seen: true, confirmed: false, title: 'Common Notice',  url: 'assets/notices/notice-2.jpeg' },
+  { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Common Notice',  url: 'assets/notices/notice-3.jpeg' },
+  { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Common Notice',  url: 'assets/notices/notice-2.jpeg' }
 ];
 
 export const noticeCount = [
   {
     date: '2023-11-02',
     documents: [
-      { title: 'Notice 1', url: 'assets/notices/notice-1.jpeg' },
-      { title: 'Notice 2', url: 'assets/notices/notice-2.jpeg' },
-      { title: 'Notice 3', url: 'assets/notices/notice-4.jpg' }
+      { title: 'Common Notice', url: 'assets/notices/notice-1.jpeg' },
+      { title: 'Common Notice', url: 'assets/notices/notice-2.jpeg' },
+      { title: 'Specific Branch Notice', url: 'assets/notices/notice-4.jpg' }
     ]
   },
   {
     date: '2023-11-03',
     documents: [
-      { title: 'Notice 4', url: 'assets/notices/notice-3.jpeg' },
-      { title: 'Notice 5', url: 'assets/notices/notice-1.jpeg' }
+      { title: 'Specific Branch Notice', url: 'assets/notices/notice-3.jpeg' },
+      { title: 'Specific Branch Notice', url: 'assets/notices/notice-1.jpeg' }
     ]
   },
   {
     date: '2023-11-04',
     documents: [
-      { title: 'Notice 6', url: 'assets/notices/notice-1.jpeg' }
+      { title: 'Specific Branch Notice', url: 'assets/notices/notice-1.jpeg' }
     ]
   }
 ];
