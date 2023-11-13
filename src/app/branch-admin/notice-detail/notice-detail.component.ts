@@ -16,11 +16,11 @@ interface Notice {
 })
 export class NoticeDetailComponent {
   mockNotices: Notice[] = [
-    { title: 'Common Notice', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
+    { title: 'Branch Specific Notice', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
     { title: 'Specific Branch Notice', document: 'assets/notices/notice-2.jpeg', uploadedOn: '2021-10-02', proof: 'assets/notices/notice-2.jpeg' },
     { title: 'Specific Branch Notice', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
-    { title: 'Common Notice', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
-    { title: 'Common Notice', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
+    { title: 'Branch Specific Notice', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
+    { title: 'Branch Specific Notice', document: 'assets/notices/notice-1.jpeg', uploadedOn: '2021-10-01', proof: 'assets/notices/notice-1.jpeg' },
   ];
 
   @Input() notices: Notice[] = [];
