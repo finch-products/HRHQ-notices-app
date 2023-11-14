@@ -9,63 +9,105 @@
 							<th>Sl No</th>
 							<th>Notice Document</th>
 							<th>Uploaded On</th>
-							<th>Proof</th>
-							<th *ngIf="authService.getRole() === 'branchAdmin'">Upload Btn</th>
+							<th>Status</th>
+							<th *ngIf="authService.getRole() === 'branchAdmin'"></th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody *ngIf="authService.getRole() === 'branchAdmin'">
 						<tr *ngFor="let notice of mockNotices; let i = index">
 							<td>{{ i + 1 }}</td>
 							<td> <a href="{{ notice.document }}" target="_blank">{{ notice.title }}</a></td>
 							<td>{{ notice.uploadedOn | date }}</td>
-							<td *ngIf="authService.getRole() === 'branchAdmin'">
-								{{ uploadedProofs[i]?.[0]?.name }}
+
+							<!-- Status -->
+
+							<td *ngIf="notice.status == 0 || notice.status == 1">
+								<div class="flex-r aic seen">
+									<mat-icon>done_all</mat-icon>
+									&nbsp; Received
+								</div>
 							</td>
-							<td *ngIf="authService.getRole() === 'hrhqadmin'">
-								<a href="{{ notice.proof }}" target="_blank">{{ notice.title }}</a>
+							<td *ngIf="notice.status == 5" >
+								<div class="flex-r aic ack">
+									<mat-icon>check_circle_outline</mat-icon>
+									&nbsp; Acknowledged
+								</div>
 							</td>
-							<td *ngIf="authService.getRole() === 'branchAdmin'">
-								<input type="file" #fileInput style="display:none"
-									(change)="uploadProof(i, fileInput.files)" multiple>
+
+							<!-- Action -->
+							<td *ngIf="notice.status == 5">
+								<img [src]="notice.proof" alt="Proof" width="100">
+							</td>
+							<td *ngIf="notice.status == 0 || notice.status == 1">
+								<input type="file" #fileInput style="display:none" (change)="uploadProof(i, fileInput.files)" multiple>
 								<button mat-flat-button color="primary" (click)="fileInput.click()">Upload</button>
 							</td>
 						</tr>
 					</tbody>
-				</table>
-			</div>
-			
-		</div>
-
-		<div class="card">
-			<h2>Notice History</h2>
-			<div class="overflow">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Sl No</th>
-							<th>Notice Document</th>
-							<th>Uploaded On</th>
-							<th>Proof</th>
-						</tr>
-					</thead>
-					<tbody>
+					<tbody *ngIf="authService.getRole() === 'hrhqadmin'">
 						<tr *ngFor="let notice of mockNotices; let i = index">
 							<td>{{ i + 1 }}</td>
-							<td><a href="{{ notice.document }}" target="_blank">{{ notice.title }}</a></td>
+							<td> <a href="{{ notice.document }}" target="_blank">{{ notice.title }}</a></td>
 							<td>{{ notice.uploadedOn | date }}</td>
+
+							<!-- Status -->
+
 							<td>
-								<div>
-	
-								</div>
-								<img *ngIf="notice.proof" [src]="notice.proof" alt="Proof" width="100">
+								<!-- <mat-accordion> -->
+									<mat-expansion-panel hideToggle>
+										<mat-expansion-panel-header>
+											<mat-panel-title>
+												<div class="flex-r aic" style="min-width: 300px;">
+													<span *ngIf="notice.status == 0" class="flex-r aic sent"  >
+														<mat-icon>done</mat-icon>
+														&nbsp; Sent
+													</span>
+													<span *ngIf="notice.status == 1" class="flex-r aic seen"  >
+														<mat-icon>done_all</mat-icon>
+														&nbsp; Received
+													</span>
+													<span *ngIf="notice.status == 5" class="flex-r aic ack"  >
+														<mat-icon >check_circle_outline</mat-icon>
+														&nbsp; Acknowledged
+													</span>
+													<span>
+														&nbsp; ( {{ notice.count }} / {{ notice.branch_wise_status.length }} )
+													</span>
+												</div>
+												
+											</mat-panel-title>
+										</mat-expansion-panel-header>
+										<div>
+											<table class="table">
+												<tr *ngFor="let branch of notice.branch_wise_status">
+													<th>{{branch.branch_name}}</th>
+													<td *ngIf="branch.status == 0">
+														<div class="flex-r aic sent">
+															<mat-icon>done</mat-icon>
+															&nbsp; Sent On {{ branch.status_time | date:'medium' }}
+														</div>
+													</td>
+													<td *ngIf="branch.status == 1">
+														<div class="flex-r aic seen">
+															<mat-icon>done_all</mat-icon>
+															&nbsp; Received On {{ branch.status_time | date:'medium' }}
+														</div>
+													</td>
+													<td *ngIf="branch.status == 5" >
+														<div class="flex-r aic ack">
+															<mat-icon>check_circle_outline</mat-icon>
+															&nbsp; Acknowledged On {{ branch.status_time | date:'medium' }}
+														</div>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</mat-expansion-panel>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			
 		</div>
-
-
 	</div>
 </div>

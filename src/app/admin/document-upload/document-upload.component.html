@@ -25,29 +25,31 @@
 	<div class="notice-list-wrap card">
 		<button mat-flat-button color="primary" type="button" class="btn1" *ngIf="documents.length === 0" (click)="fileInput.click()"> <mat-icon>add</mat-icon> New Notice</button>
 		<h2>Notices List</h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Sl No</th>
-					<th>Document</th>
-					<th>Sent To</th>
-					<th>Sent On</th>
-					<th>Status</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let uploadedDocument of uploadedDocuments">
-					<td>{{ uploadedDocument.id }}</td>
-					<td>
-						<a href="assets/notices/{{uploadedDocument.file}}" target="_blank">
-							{{ uploadedDocument.file }}
-						</a>
-					</td>
-					<td>{{ uploadedDocument.allBranches ? 'All Branches' : uploadedDocument.selectedBranch }}</td>
-					<td>{{ uploadedDocument.sentOn | date:'dd MMM yy, hh:mm a' }}</td>
-					<td>{{ uploadedDocument.status }}</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="overflow">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Sl No</th>
+						<th>Document</th>
+						<th>Sent To</th>
+						<th>Sent On</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let uploadedDocument of uploadedDocuments">
+						<td>{{ uploadedDocument.id }}</td>
+						<td>
+							<a href="assets/notices/{{uploadedDocument.file}}" target="_blank">
+								{{ uploadedDocument.file }}
+							</a>
+						</td>
+						<td>{{ uploadedDocument.allBranches ? 'All Branches' : uploadedDocument.selectedBranch }}</td>
+						<td>{{ uploadedDocument.sentOn | date:'dd MMM yy, hh:mm a' }}</td>
+						<td>{{ uploadedDocument.status }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>

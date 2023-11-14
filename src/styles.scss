@@ -327,11 +327,11 @@ mat-tab-header {
   align-items: center;
 }
 
-.header-logo {
-  height: 100px;
-  margin-right: 10px;
-  margin-top: 20px;
-}
+// .header-logo {
+//   height: 100px;
+//   margin-right: 10px;
+//   margin-top: 20px;
+// }
 
 mat-toolbar span {
   display: flex;
@@ -362,9 +362,9 @@ mat-toolbar span {
   .notice-bar {
     top: 7%;
   }
-  .header-logo {
-    height: 70px;
-    margin-right: 10px;
-    margin-top: 10px;
-  }
+  // .header-logo {
+  //   height: 70px;
+  //   margin-right: 10px;
+  //   margin-top: 10px;
+  // }
 }

@@ -16,11 +16,6 @@
     text-align: center;
 }
 
-.notice-history-btn{
-    background-color: #0f02 !important;
-    margin: 0 10px 10px 0;
-}
-
 .red-bold{
   color: red;
   font-weight: bold;
@@ -31,14 +26,14 @@
   font-weight: normal;
 }
 
-.common-notice-btn {
+.branch-notice-btn {
   background-color: #ADD8E6 !important; /* Light grey for common notices */
-  /* other styles */
+  margin: 0 10px 10px 0;
 }
 
-.branch-notice-btn {
+.common-notice-btn {
   background-color: #ffbf00 !important; /* Light green for branch-specific notices */
-  /* other styles */
+  margin: 0 10px 10px 0;
 }
 
 span, .pending a{

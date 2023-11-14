@@ -32,6 +32,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmailTemplateComponent } from './email-template/email-template.component';
 import { UserFormComponent } from './branch-admin/user-form/user-form.component';
 
+import {MatExpansionModule} from '@angular/material/expansion'
 @NgModule({
   declarations: [
     AuthComponent,
@@ -66,7 +67,8 @@ import { UserFormComponent } from './branch-admin/user-form/user-form.component'
     ReactiveFormsModule,
     HttpClientModule,
     OverlayModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatExpansionModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

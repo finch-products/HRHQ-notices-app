@@ -18,9 +18,9 @@ export const mockBranches: Branch[] = [
 
 
 export const notices: Notice[] = [
-  { branchId: 1, status: 'pending',  seen: false, confirmed: false, title: 'Specific Branch Notice',  url: 'assets/notices/notice-1.jpeg'  },
-  { branchId: 1, status: 'confirmed', seen: true, confirmed: true, title: 'Specific Branch Notice',  url: 'assets/notices/notice-2.jpeg' },
-  { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Specific Branch Notice',  url: 'assets/notices/notice-3.jpeg' },
+  { branchId: 1, status: 'pending',  seen: false, confirmed: false, title: 'Branch Specific Notice',  url: 'assets/notices/notice-1.jpeg'  },
+  { branchId: 1, status: 'confirmed', seen: true, confirmed: true, title: 'Common Notice',  url: 'assets/notices/notice-2.jpeg' },
+  { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Common Notice',  url: 'assets/notices/notice-3.jpeg' },
   { branchId: 2, status: 'pending',  seen: true, confirmed: false, title: 'Branch Specific Notice',  url: 'assets/notices/notice-2.jpeg' },
   { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Branch Specific Notice',  url: 'assets/notices/notice-3.jpeg' },
   { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Branch Specific Notice',  url: 'assets/notices/notice-2.jpeg' }
@@ -32,20 +32,20 @@ export const noticeCount = [
     documents: [
       { title: 'Branch Specific Notice', url: 'assets/notices/notice-1.jpeg' },
       { title: 'Branch Specific Notice', url: 'assets/notices/notice-2.jpeg' },
-      { title: 'Specific Branch Notice', url: 'assets/notices/notice-4.jpg' }
+      { title: 'Common Notice', url: 'assets/notices/notice-4.jpg' }
     ]
   },
   {
     date: '2023-11-03',
     documents: [
-      { title: 'Specific Branch Notice', url: 'assets/notices/notice-3.jpeg' },
-      { title: 'Specific Branch Notice', url: 'assets/notices/notice-1.jpeg' }
+      { title: 'Common Notice', url: 'assets/notices/notice-3.jpeg' },
+      { title: 'Common Notice', url: 'assets/notices/notice-1.jpeg' }
     ]
   },
   {
     date: '2023-11-04',
     documents: [
-      { title: 'Specific Branch Notice', url: 'assets/notices/notice-1.jpeg' }
+      { title: 'Common Notice', url: 'assets/notices/notice-1.jpeg' }
     ]
   }
 ];

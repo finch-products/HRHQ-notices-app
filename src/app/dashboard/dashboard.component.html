@@ -37,7 +37,7 @@
     <div class="flex-r pad">
       <ng-container *ngFor="let notice of pendingReportData">
         <a mat-flat-button [ngClass]="{'common-notice-btn': notice.title.includes('Branch Specific Notice'),
-                   'branch-notice-btn': notice.title.includes('Specific Branch Notice')}" href="/notice-detail">{{
+                   'branch-notice-btn': notice.title.includes('Common Notice')}" href="/notice-detail">{{
           notice.title }}</a>
       </ng-container>
     </div>
@@ -60,7 +60,7 @@
           <td>
             <span *ngFor="let document of entry.documents">
               <a [ngClass]="{'common-notice-btn': document.title.includes('Branch Specific Notice'),
-              'branch-notice-btn': document.title.includes('Specific Branch Notice')}" mat-flat-button
+              'branch-notice-btn': document.title.includes('Common Notice')}" mat-flat-button
                 href="{{ document.url }}" target="_blank">{{ document.title }}</a>
             </span>
           </td>
