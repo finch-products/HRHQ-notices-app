@@ -18,20 +18,20 @@ export const mockBranches: Branch[] = [
 
 
 export const notices: Notice[] = [
-  { branchId: 1, status: 'pending',  seen: false, confirmed: false, title: 'Branch Specific Notice',  url: 'assets/notices/notice-1.jpeg'  },
+  { branchId: 1, status: 'pending',  seen: false, confirmed: false, title: 'Common Notice',  url: 'assets/notices/notice-1.jpeg'  },
   { branchId: 1, status: 'confirmed', seen: true, confirmed: true, title: 'Common Notice',  url: 'assets/notices/notice-2.jpeg' },
   { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Common Notice',  url: 'assets/notices/notice-3.jpeg' },
-  { branchId: 2, status: 'pending',  seen: true, confirmed: false, title: 'Branch Specific Notice',  url: 'assets/notices/notice-2.jpeg' },
-  { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Branch Specific Notice',  url: 'assets/notices/notice-3.jpeg' },
-  { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Branch Specific Notice',  url: 'assets/notices/notice-2.jpeg' }
+  { branchId: 2, status: 'pending',  seen: true, confirmed: false, title: 'Branch Specific Notice',  url: 'assets/notices/notice-2.jpeg' },
+  { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Branch Specific Notice',  url: 'assets/notices/notice-3.jpeg' },
+  { branchId: 2, status: 'pending',  seen: false, confirmed: false, title: 'Branch Specific Notice',  url: 'assets/notices/notice-2.jpeg' }
 ];
 
 export const noticeCount = [
   {
     date: '2023-11-02',
     documents: [
-      { title: 'Branch Specific Notice', url: 'assets/notices/notice-1.jpeg' },
-      { title: 'Branch Specific Notice', url: 'assets/notices/notice-2.jpeg' },
+      { title: 'Branch Specific Notice', url: 'assets/notices/notice-1.jpeg' },
+      { title: 'Branch Specific Notice', url: 'assets/notices/notice-2.jpeg' },
       { title: 'Common Notice', url: 'assets/notices/notice-4.jpg' }
     ]
   },

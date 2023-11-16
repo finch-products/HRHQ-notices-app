@@ -346,6 +346,11 @@ mat-toolbar span {
 .container {
   margin-top: 8%;
 }
+
+.notice-container .container{
+  margin-top: 0;
+  padding: 0 !important;
+}
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .notice-bar {
     top: 5%;

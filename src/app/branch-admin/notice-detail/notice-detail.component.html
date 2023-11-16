@@ -10,7 +10,8 @@
 							<th style="min-width: 150px;">Notice Document</th>
 							<th style="min-width: 120px;">Uploaded On</th>
 							<th style="min-width: 150px;">Status</th>
-							<th *ngIf="authService.getRole() === 'branchAdmin'"></th>
+              <th>Proof</th>
+							<th *ngIf="authService.getRole() === 'branchAdmin'">Document</th>
 						</tr>
 					</thead>
 					<tbody *ngIf="authService.getRole() === 'branchAdmin'">
@@ -42,6 +43,16 @@
 								<input type="file" #fileInput style="display:none" (change)="uploadProof(i, fileInput.files)" multiple>
 								<button mat-flat-button color="primary" (click)="fileInput.click()">Upload</button>
 							</td>
+
+              <td *ngIf="authService.getRole() === 'branchAdmin'">
+								{{ uploadedProofs[i]?.[0]?.name }}
+							</td>
+							<td *ngIf="authService.getRole() === 'hrhqadmin'">
+								<a href="{{ notice.proof }}" target="_blank">{{ notice.title }}</a>
+							</td>
+							<td *ngIf="authService.getRole() === 'branchAdmin'">
+								<input type="file" #fileInput style="display:none"
+									(change)="uploadProof(i, fileInput.files)" multiple>
 						</tr>
 					</tbody>
 					<tbody *ngIf="authService.getRole() === 'hrhqadmin'">
@@ -74,7 +85,7 @@
 														&nbsp; ( {{ notice.count }} / {{ notice.branch_wise_status.length }} )
 													</span>
 												</div>
-												
+
 											</mat-panel-title>
 										</mat-expansion-panel-header>
 										<div>
