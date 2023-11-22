@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +32,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmailTemplateComponent } from './email-template/email-template.component';
 import { UserFormComponent } from './branch-admin/user-form/user-form.component';
 
-import {MatExpansionModule} from '@angular/material/expansion'
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ServiceWorkerModule } from '@angular/service-worker'
 @NgModule({
   declarations: [
     AuthComponent,
@@ -68,7 +69,13 @@ import {MatExpansionModule} from '@angular/material/expansion'
     HttpClientModule,
     OverlayModule,
     MatBadgeModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

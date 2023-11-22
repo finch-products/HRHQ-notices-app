@@ -15,18 +15,17 @@
 			<h2>{{title}}</h2>
 			<mat-form-field appearance="outline">
 				<mat-label>Phone Number</mat-label>
-				<input matInput formControlName="phone" type="tel" required />
+				<input matInput formControlName="phone" type="tel" />
 			</mat-form-field>
 
 			<mat-form-field *ngIf="otpSent" appearance="outline">
 				<mat-label>OTP</mat-label>
-				<input matInput formControlName="otp" required />
+				<input matInput formControlName="otp" />
 			</mat-form-field>
 
 			<div align="end">
-				<button mat-stroked-button color="primary" type="button" (click)="sendOtp()" *ngIf="!otpSent"
-				[disabled]="otpSent || !authForm.get('phone')!.valid">Send OTP</button>
-				<!-- <button mat-flat-button color="primary" *ngIf="showSubmitButton()" type="submit" [disabled]="!authForm.get('otp')!.valid">Login</button> -->
+				<button mat-stroked-button color="primary" *ngIf="showOTPButton()" type="button" (click)="sendOtp()">Send OTP</button>
+				<button mat-flat-button color="primary" *ngIf="showSubmitButton()" type="submit">Login</button>
 			</div>
 		</form>
 	</div>
